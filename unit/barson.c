@@ -31,6 +31,14 @@ _barson_virtual( BarSon self )
 	return;
 }
 
+static
+void
+_override_bar_virtual( BarSon self )
+{
+	self->Bar.data += 0x10;
+	BarSonParentVirtual( self )->overriden( (Bar) self );
+}
+
 
 /* Class initializing
  */
@@ -42,6 +50,8 @@ BarSon_initialize( Class this )
 	BarSonVtable vtab = & BarSonVtableInstance;
 	
 	vtab->barson_virtual	= 	_barson_virtual;
+
+	vtab->Bar.overriden		=	(void(*)(Bar)) _override_bar_virtual;
 
 	/* Allocate global resources here */
 }

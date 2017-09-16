@@ -26,9 +26,16 @@ AllocateClass( Bar, Base );
 
 static
 void
-_bar_virtual( Bar self )
+_bar_default_virtual( Bar self )
 {
 	return;
+}
+
+static
+void
+_bar_override( Bar self )
+{
+	self->data += 1;
 }
 
 
@@ -41,7 +48,8 @@ Bar_initialize( Class this )
 {
 	BarVtable vtab = & BarVtableInstance;
 	
-	vtab->bar_virtual	= 	_bar_virtual;
+	vtab->bar_virtual	= 	_bar_default_virtual;
+	vtab->overriden		= 	_bar_override;
 
 	/* Allocate global resources here */
 }

@@ -1228,7 +1228,7 @@ methods of the class, and the desired method can be called via this function poi
 void
 rotate_an_animal( Animal self )
 @{
-    Drawable drawable = ooc_get_interface( (Object) self );
+    Drawable drawable = ooc_get_interface( (Object) self, Drawable );
 
     if( drawable )
         drawable->rotate( (Object) self );
@@ -1238,10 +1238,10 @@ rotate_an_animal( Animal self )
 @code{ooc_get_interface()} returns @code{NULL} if the desired interface is not implemented for the object. If you use this function, always check for a @code{NULL} pointer, otherwise you will generate a segmentation fault, if the interface is not implemented.@*
 In case you know that your object has implemented the desired interface, but you do not know the exact type of your object, you can use the @code{ooc_get_interface_must_have()} function instead. This will never return a @code{NULL} pointer, but throws an @code{Exception} if the object does not have the desired interface.
 @example
-ooc_get_interface_must_have( (Object) self )->rotate( (Object) self );
+ooc_get_interface_must_have( (Object) self, Drawable )->rotate( (Object) self );
 @end example
 
-@strong{Note}: the @code{ooc_get_interface()} function traveses the InterfaceRegister for the class and its superclasses, so it may be relative slow. If you use the interface for an object multiple times within a context, it is worth to retrieve the interface pointer only ones for the object, and keep it around until needed.
+@strong{Note}: the @code{ooc_get_interface()} function traveses the InterfaceRegister for the class and its superclasses, so it may be relative slow. If you use the interface for an object multiple times within a context, it is worth to retrieve the interface pointer only once for the object, and keep it around until needed.
 
 @section Mixins
 

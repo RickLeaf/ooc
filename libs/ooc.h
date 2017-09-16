@@ -499,9 +499,8 @@ extern ROM struct ClassTable BaseClass;
 
 #define _parent_vtab_access_fn( pClass, pParent )								\
 			_parent_vtab_access_prototype( pClass, pParent )	{				\
-				assert ( ((struct BaseObject *) this )->_vtab->_class->parent != &BaseClass ); \
-				return ( pParent ## Vtable ) ( ((struct BaseObject *) this )->_vtab->_class->parent->c.vtable ); \
-				}
+				assert ( pClass ## Class.parent != &BaseClass ); 				\
+				return ( pParent ## Vtable ) ( pClass ## Class.parent->c.vtable ); }
 
 #if !defined( NO_INLINE )	/* Compilers that support function inlining */
 

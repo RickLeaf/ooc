@@ -157,6 +157,34 @@ ooctest_after_class( OocTest self )
 	Test methods
  */
 
+/* This is a BarGrandSon class implementation
+ */
+
+DeclareClass( BarGrandSon, BarSon );
+
+ClassMembers( BarGrandSon, BarSon )
+EndOfClassMembers;
+
+Virtuals( BarGrandSon, BarSon )
+EndOfVirtuals;
+
+AllocateClass( BarGrandSon, BarSon );
+
+static	void	_override_bar_virtual( BarGrandSon self )
+{
+						self->BarSon.Bar.data += 0x100;
+						BarGrandSonParentVirtual( self )->Bar.overriden( (Bar) self );
+}
+
+static	void	BarGrandSon_initialize( Class this )
+				{ BarGrandSonVtableInstance.BarSon.Bar.overriden = (void (*)(Bar)) _override_bar_virtual; }
+#ifndef OOC_NO_FINALIZE
+static	void	BarGrandSon_finalize( Class this ) {}
+#endif
+static	void	BarGrandSon_constructor( BarGrandSon self, const void * params ) {}
+static	void	BarGrandSon_destructor( BarGrandSon self, BarGrandSonVtable vtab ) {}
+static	int		BarGrandSon_copy( BarGrandSon self, const BarGrandSon from ) { return OOC_COPY_DEFAULT; }
+
 /* This is a BarBadGrandSon class implementation
  */
 
@@ -802,6 +830,35 @@ test_cast( void )
 	ooc_finalize_class( Foo );
 }
 
+static
+void
+test_subsubclass_virtuals( void )
+{
+	BarGrandSon	bargrandson;
+
+	ooc_init_class( BarGrandSon );
+
+	assertTrue( ooc_isClassOf( BarSon, Bar ) );
+	assertTrue( ooc_isClassOf( BarGrandSon, BarSon ) );
+	assertTrue( ooc_isClassOf( BarGrandSon, Bar ) );
+
+	bargrandson = ooc_new( BarGrandSon, NULL );
+
+	assertTrue( ooc_isInstanceOf( bargrandson, BarGrandSon ) );
+	assertTrue( ooc_isInstanceOf( bargrandson, BarSon ) );
+	assertTrue( ooc_isInstanceOf( bargrandson, Bar ) );
+
+	bargrandson->BarSon.Bar.data = 0x1000;
+
+	BarGrandSonVirtual( bargrandson )->BarSon.Bar.overriden( (Bar) bargrandson );
+
+	assertTrue( bargrandson->BarSon.Bar.data == 0x1111 );
+
+	ooc_delete( (Object) bargrandson );
+
+	ooc_finalize_class( BarGrandSon );
+}
+
 /** Test methods order table.
  * Put your test methods in this table in the order they should be executed
  * using the TEST(method) macro. 
@@ -817,6 +874,7 @@ struct TestCaseMethod methods[] =
 	TEST(test_finalize),
 	TEST(test_lifecycle),
 	TEST(test_virtual_initialization),
+	TEST(test_subsubclass_virtuals),
 	TEST(test_new),
 	TEST(test_ctor_new),
 	TEST(test_ctor_use),
@@ -825,6 +883,7 @@ struct TestCaseMethod methods[] =
 	TEST(test_delete_and_null),
 	TEST(test_delete_circular),
 	TEST(test_cast),
+	TEST(test_subsubclass_virtuals),
 	
 	
 	{NULL, NULL} /* Do NOT delete this line! */

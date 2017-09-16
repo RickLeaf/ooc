@@ -22,7 +22,9 @@ const char *	bar_get_text( Bar self );
 
 Virtuals( Bar, Base )
 
-	void	(* bar_virtual)  ( Bar );
+	void	(* bar_virtual) ( Bar );
+	void	(* overriden)  	( Bar );
+
 
 EndOfVirtuals;
 
