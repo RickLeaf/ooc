@@ -49,9 +49,9 @@ static void exceptiontest_after_class( ExceptionTest self );
 
 static
 void
-ExceptionTest_initialize( Class this )
+ExceptionTest_initialize( Class self )
 {
-	ExceptionTestVtable vtab = (ExceptionTestVtable) this->vtable;
+	ExceptionTestVtable vtab = (ExceptionTestVtable) self->c.vtable;
 	
 	((TestCaseVtable)vtab)->before_class	= 	(test_method_type) exceptiontest_before_class;
 	((TestCaseVtable)vtab)->before			= 	(test_method_type) exceptiontest_before;

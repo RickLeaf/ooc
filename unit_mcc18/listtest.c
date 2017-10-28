@@ -65,7 +65,7 @@ static
 void
 ListTest_initialize( Class this )
 {
-	ListTestVtable vtab = (ListTestVtable) this->vtable;
+	ListTestVtable vtab = (ListTestVtable) this->c.vtable;
 	
 	((TestCaseVtable)vtab)->before_class	= 	(test_method_type) listtest_before_class;
 	((TestCaseVtable)vtab)->before			= 	(test_method_type) listtest_before;
@@ -167,7 +167,7 @@ foonode_new( void )
 	if( ++foonodepool_counter >= MAX_FOONODES )
 		foonodepool_counter = 0;
 
-	if( FooNodePool[ foonodepool_counter ].ListNode.Base._vtab == FooNodeClass.vtable )
+	if( FooNodePool[ foonodepool_counter ].ListNode.Base._vtab == FooNodeClass.c.vtable )
 		ooc_throw( exception_new( err_out_of_memory ) );
 
 	ooc_use( & FooNodePool[ foonodepool_counter ], FooNode, NULL );

@@ -12,7 +12,7 @@
     <ROW Property="ProductCode" Value="1033:{2BFAF33C-34A3-4EAD-AEBC-080FE4BD4DD1} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="ooc" ValueLocId="*"/>
-    <ROW Property="ProductVersion" Value="1.3.2"/>
+    <ROW Property="ProductVersion" Value="1.3.3"/>
     <ROW Property="REBOOT" MultiBuildValue="DefaultBuild:ReallySuppress"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{CF565570-C73B-45C8-8B37-F8528F62C4E0}"/>
@@ -46,11 +46,11 @@
     <ROW Directory="unit_DIR" Directory_Parent="template_DIR" DefaultDir="unit"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
-    <ROW Component="Classmanipulationtool.html" ComponentId="{8D823072-88DE-4C16-A9C0-CAB0E5A4F186}" Directory_="ooc.html_Dir" Attributes="0" KeyPath="Classmanipulationtool.html" Type="0"/>
+    <ROW Component="Classmanipulationtool.html" ComponentId="{CC803AA4-665F-4BDE-A75E-A0520D3E50EE}" Directory_="ooc.html_Dir" Attributes="0" KeyPath="Classmanipulationtool.html" Type="0"/>
     <ROW Component="Makefile.am" ComponentId="{4DB1EFA8-C8A2-4331-963E-905E64B5F164}" Directory_="unit_DIR" Attributes="0" KeyPath="Makefile.am" Type="0"/>
     <ROW Component="SHORTCUTDIR" ComponentId="{E746CB27-5823-4491-BA5A-72B663C58064}" Directory_="SHORTCUTDIR" Attributes="0"/>
-    <ROW Component="all_5f.html" ComponentId="{D3235D65-DE74-4EB9-87F3-C9F81848CE9E}" Directory_="search_Dir" Attributes="0" KeyPath="all_5f.html" Type="0"/>
-    <ROW Component="annotated.html" ComponentId="{36F9E4F1-319C-4EF6-BC55-9DC081278DBD}" Directory_="html_Dir" Attributes="0" KeyPath="annotated.html" Type="0"/>
+    <ROW Component="all_5f.html" ComponentId="{EE2DC4B4-6160-4F97-804B-671317FDAE1A}" Directory_="search_Dir" Attributes="0" KeyPath="all_5f.html" Type="0"/>
+    <ROW Component="annotated.html" ComponentId="{1113B385-5ADF-4CAA-8BFE-3D4F82D1C86A}" Directory_="html_Dir" Attributes="0" KeyPath="annotated.html" Type="0"/>
     <ROW Component="anyc.h" ComponentId="{6DF649F2-0564-40B1-9BFF-8F5EC7F87527}" Directory_="port_DIR" Attributes="0" KeyPath="anyc.h" Type="0"/>
     <ROW Component="booklet.c" ComponentId="{0DC69AC7-BC30-475F-9906-4BE9CBA66924}" Directory_="interface_Dir" Attributes="0" KeyPath="booklet.c" Type="0"/>
     <ROW Component="booklet.h" ComponentId="{3DE4154D-9FB2-468D-9D8D-EEE0F0E8EEB7}" Directory_="implement_Dir" Attributes="0" KeyPath="booklet.h_1" Type="0"/>
@@ -58,8 +58,8 @@
     <ROW Component="exception.h_1" ComponentId="{95C87522-650D-493A-8291-A3DD489E1DC9}" Directory_="implement_1_DIR" Attributes="0" KeyPath="exception.h_1" Type="0"/>
     <ROW Component="flavour.c" ComponentId="{718B30D7-9BBB-48FC-9299-3004E8657ABA}" Directory_="mixin_Dir" Attributes="0" KeyPath="flavour.c" Type="0"/>
     <ROW Component="flavour.h" ComponentId="{50559405-B9CC-4A88-A498-1E09F19C64FF}" Directory_="implement_1_Dir" Attributes="0" KeyPath="flavour.h_1" Type="0"/>
-    <ROW Component="index.html" ComponentId="{0A429602-E3FE-4CAA-9B9C-D0CD971CBC0E}" Directory_="ooc.html_Dir" Attributes="0" KeyPath="index.html_1"/>
-    <ROW Component="index.html_1" ComponentId="{0A051A48-BE52-40A6-A46F-13CB54C96574}" Directory_="html_Dir" Attributes="0" KeyPath="index.html"/>
+    <ROW Component="index.html" ComponentId="{0ECC5EF2-BD7C-4AA9-83FC-50892C6885D9}" Directory_="html_Dir" Attributes="0" KeyPath="index.html"/>
+    <ROW Component="index.html_1" ComponentId="{2D1EDBC5-9704-43C1-97CF-0949230A2EC3}" Directory_="ooc.html_Dir" Attributes="0" KeyPath="index.html_1"/>
     <ROW Component="intl.dll" ComponentId="{2203B013-5B92-435C-8BF7-CDEEE80E28BE}" Directory_="APPDIR" Attributes="0" KeyPath="intl.dll"/>
     <ROW Component="lgpl.html" ComponentId="{AC23E3E3-B0F7-45E2-96A4-376068C2880B}" Directory_="docs_DIR" Attributes="0" KeyPath="lgpl.html"/>
     <ROW Component="libglib_2.0_0.dll" ComponentId="{535C6421-5849-45A0-B9B0-087DB875047B}" Directory_="APPDIR" Attributes="0" KeyPath="libglib_2.0_0.dll"/>
@@ -211,8 +211,8 @@
     <ROW File="icecream.c" Component_="flavour.c" FileName="icecream.c" Attributes="0" SourcePath="examples\mixin\icecream.c" SelfReg="false" NextFile="icecream.h"/>
     <ROW File="icecream.h" Component_="flavour.c" FileName="icecream.h" Attributes="0" SourcePath="examples\mixin\icecream.h" SelfReg="false" NextFile="flavour.h_1"/>
     <ROW File="icecream.h_1" Component_="flavour.h" FileName="icecream.h" Attributes="0" SourcePath="examples\mixin\implement\icecream.h" SelfReg="false" NextFile="softdrink.h"/>
-    <ROW File="index.html" Component_="index.html_1" FileName="index~1.htm|index.html" Attributes="0" SourcePath="docs\api\html\index.html" SelfReg="false" NextFile="installdox"/>
-    <ROW File="index.html_1" Component_="index.html" FileName="index~1.htm|index.html" Attributes="0" SourcePath="docs\ooc.html\index.html" SelfReg="false" NextFile="Indices.html"/>
+    <ROW File="index.html" Component_="index.html" FileName="index~1.htm|index.html" Attributes="0" SourcePath="docs\api\html\index.html" SelfReg="false" NextFile="installdox"/>
+    <ROW File="index.html_1" Component_="index.html_1" FileName="index~1.htm|index.html" Attributes="0" SourcePath="docs\ooc.html\index.html" SelfReg="false" NextFile="Indices.html"/>
     <ROW File="installdox" Component_="annotated.html" FileName="instal~1|installdox" Attributes="0" SourcePath="docs\api\html\installdox" SelfReg="false" NextFile="jquery.js"/>
     <ROW File="interface.c" Component_="minimal.c" FileName="interf~1.c|interface.c" Attributes="0" SourcePath="tools\template\interface.c" SelfReg="false" NextFile="interface.h"/>
     <ROW File="interface.h" Component_="minimal.c" FileName="interf~1.h|interface.h" Attributes="0" SourcePath="tools\template\interface.h" SelfReg="false" NextFile="mixin.c"/>
@@ -432,10 +432,10 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
     <ROW Shortcut="Licensing" Directory_="SHORTCUTDIR" Name="Licens~1|Licensing" Component_="lgpl.html" Target="[#lgpl.html]" Hotkey="0" IconIndex="0" ShowCmd="1" WkDir="docs_DIR"/>
-    <ROW Shortcut="oocAPIdocumentationHTML" Directory_="SHORTCUTDIR" Name="oocAPI~1|ooc API documentation (HTML)" Component_="index.html_1" Target="[#index.html]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1" WkDir="html_Dir"/>
+    <ROW Shortcut="oocAPIdocumentation" Directory_="SHORTCUTDIR" Name="oocAPI~2|ooc API documentation (HTML)" Component_="index.html" Target="[#index.html]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1" WkDir="html_Dir"/>
     <ROW Shortcut="ooc_manual_PDF" Directory_="SHORTCUTDIR" Name="oocman~1|ooc manual (PDF)" Component_="ooc.pdf" Target="[#ooc.pdf]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1" WkDir="docs_DIR"/>
-    <ROW Shortcut="oocexamples" Directory_="SHORTCUTDIR" Name="oocexa~1|ooc examples" Component_="index.html_1" Target="[ooc_Dir]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1"/>
-    <ROW Shortcut="oocmanualHTML" Directory_="SHORTCUTDIR" Name="oocman~2|ooc manual (HTML)" Component_="index.html" Target="[#index.html_1]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1" WkDir="ooc.html_Dir"/>
+    <ROW Shortcut="oocexamples" Directory_="SHORTCUTDIR" Name="oocexa~1|ooc examples" Component_="flavour.c" Target="[ooc_Dir]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1"/>
+    <ROW Shortcut="oocmanualHTML" Directory_="SHORTCUTDIR" Name="oocman~2|ooc manual (HTML)" Component_="index.html_1" Target="[#index.html_1]" Hotkey="0" Icon_="oocwin.exe" IconIndex="0" ShowCmd="1" WkDir="ooc.html_Dir"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
     <ATTRIBUTE name="UsedTheme" value="classic"/>

@@ -67,7 +67,7 @@ static
 void
 VectorTest_initialize( Class this )
 {
-	VectorTestVtable vtab = (VectorTestVtable) this->vtable;
+	VectorTestVtable vtab = (VectorTestVtable) this->c.vtable;
 	
 	vtab->TestCase.before_class	= 	(test_method_type) vectortest_before_class;
 	vtab->TestCase.before		= 	(test_method_type) vectortest_before;

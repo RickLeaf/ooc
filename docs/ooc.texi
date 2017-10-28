@@ -331,10 +331,10 @@ You can use @code{ooc_rethrow()} as well for passing the actual exception to the
 
 You can catch the thrown exceptions with the @code{catch()} or @code{catch_any} blocks.
 
-The @code{catch( Class )} block catches the objects of the specified class or its parent (super-) classes. The caught object is stored in a variable called @code{Exception exception}, that is automatically defined and can be used only within the @code{catch} block.
+The @code{catch( Class )} block catches the objects of the specified class or its subclasses. The caught object is stored in a variable called @code{Exception exception}, that is automatically defined and can be used only within the @code{catch} block.
 @sp 1
 The @code{catch_any} block catches all exceptions that were not handled by the earlier @code{catch} blocks. It is typically used for cleanup and rethrow of exception that could not be handled locally.
-You can use as many @code{cath()} blocks, as many you need, plus one @code{catch_any} block as the last one. Be careful with the ordering of the @code{catch()} blocks: catching a class means catching @emph{all of the parent classes} as well.
+You can use as many @code{cath()} blocks, as many you need, plus one @code{catch_any} block as the last one. Be careful with the ordering of the @code{catch()} blocks: catching a class means catching @emph{all of the subclasses} as well.
 @section Finalize the exception handling
 
 You can notice, that there is a @code{finally} option as well, that will run in every case. It is very important that codes in the @code{finally} block can not fail (can not throw any exception)! This section will run in every case, regardless of the existence of an exception, or if it was caught or not.
