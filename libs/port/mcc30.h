@@ -79,7 +79,7 @@
  */
 
 /* #define OOC_HAS_UNIX_SIGNALS
- * Has, but does not work as excepted :-(
+ * Has, but does not work as expected :-(
  */
 
 #ifdef COMPILING_OOC_C

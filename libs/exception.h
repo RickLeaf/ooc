@@ -112,14 +112,20 @@ struct ooc_try_block {
 	struct ooc_Manageable * managed;
 	};
 
-#define		try			{ struct ooc_try_block TryContext;		\
-						Exception exception;					\
-						ooc_link_try_block( &TryContext );		\
-						if( ! SETJMP(TryContext.buffer) )
-#define		catch(ec)	else if( (exception = ooc_exception_caught( & ec ## Class ))) 
-#define		catch_any	else if( (exception = ooc_exception_caught( NULL )))
-#define		finally		;
-#define		end_try		ooc_end_try(); }
+#define		try			{ struct ooc_try_block TryContext; \
+						ooc_link_try_block( &TryContext ); \
+						do { { \
+						if( ! SETJMP(TryContext.buffer) ) {
+#define		catch(ec)	break; } } \
+						{ Exception exception = ooc_exception_caught( & ec ## Class ); \
+						if(exception) {
+#define		catch_any	break; } } \
+						{ Exception exception = ooc_exception_caught( NULL ); \
+						if(exception) {
+#define		finally		} } } while (0); \
+						do { { {
+#define		end_try		} } } while (0); \
+						ooc_end_try(); }
 
 void		ooc_link_try_block( struct ooc_try_block * );
 Exception	ooc_exception_caught( const Class );
