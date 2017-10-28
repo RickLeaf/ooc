@@ -1,4 +1,4 @@
-info_TEXINFOS = ooc.texinfo
+info_TEXINFOS = ooc.texi
 
 html-local:
 	cp *.png $(HTMLS)

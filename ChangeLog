@@ -1,6 +1,6 @@
 1.3c
 Bug fix in calling parent class's virtual function (thanks to Tomasz Krasuski discovering the bug)
-
+Fixing unused variable compilation warning for try ... finally blocks. (Tomek)
 
 1.3b
 sigsetjmp/siglongjmp for POSIXs

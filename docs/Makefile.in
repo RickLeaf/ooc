@@ -134,7 +134,7 @@ DVIS = ooc.dvi
 PDFS = ooc.pdf
 PSS = ooc.ps
 HTMLS = ooc.html
-TEXINFOS = ooc.texinfo
+TEXINFOS = ooc.texi
 TEXI2DVI = texi2dvi
 TEXI2PDF = $(TEXI2DVI) --pdf --batch
 MAKEINFOHTML = $(MAKEINFO) --html
@@ -263,12 +263,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-info_TEXINFOS = ooc.texinfo
+info_TEXINFOS = ooc.texi
 EXTRA_DIST = Doxyfile.linux ooc.html api ooc.pdf *.png
 all: all-am
 
 .SUFFIXES:
-.SUFFIXES: .dvi .html .info .pdf .ps .texinfo
+.SUFFIXES: .dvi .html .info .pdf .ps .texi
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	@for dep in $?; do \
 	  case '$(am__configure_deps)' in \
@@ -300,7 +300,7 @@ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
 
-.texinfo.info:
+.texi.info:
 	$(AM_V_MAKEINFO)restore=: && backupdir="$(am__leading_dot)am$$$$" && \
 	am__cwd=`pwd` && $(am__cd) $(srcdir) && \
 	rm -rf $$backupdir && mkdir $$backupdir && \
@@ -322,19 +322,19 @@ $(am__aclocal_m4_deps):
 	fi; \
 	rm -rf $$backupdir; exit $$rc
 
-.texinfo.dvi:
+.texi.dvi:
 	$(AM_V_TEXI2DVI)TEXINPUTS="$(am__TEXINFO_TEX_DIR)$(PATH_SEPARATOR)$$TEXINPUTS" \
 	MAKEINFO='$(MAKEINFO) $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) -I $(srcdir)' \
 	$(TEXI2DVI) $(AM_V_texinfo) --build-dir=$(@:.dvi=.t2d) -o $@ $(AM_V_texidevnull) \
 	$<
 
-.texinfo.pdf:
+.texi.pdf:
 	$(AM_V_TEXI2PDF)TEXINPUTS="$(am__TEXINFO_TEX_DIR)$(PATH_SEPARATOR)$$TEXINPUTS" \
 	MAKEINFO='$(MAKEINFO) $(AM_MAKEINFOFLAGS) $(MAKEINFOFLAGS) -I $(srcdir)' \
 	$(TEXI2PDF) $(AM_V_texinfo) --build-dir=$(@:.pdf=.t2p) -o $@ $(AM_V_texidevnull) \
 	$<
 
-.texinfo.html:
+.texi.html:
 	$(AM_V_MAKEINFO)rm -rf $(@:.html=.htp)
 	$(AM_V_at)if $(MAKEINFOHTML) $(AM_MAKEINFOHTMLFLAGS) $(MAKEINFOFLAGS) -I $(srcdir) \
 	 -o $(@:.html=.htp) $<; \
@@ -343,14 +343,14 @@ $(am__aclocal_m4_deps):
 	else \
 	  rm -rf $(@:.html=.htp); exit 1; \
 	fi
-$(srcdir)/ooc.info: ooc.texinfo $(srcdir)/version.texi
-ooc.dvi: ooc.texinfo $(srcdir)/version.texi
-ooc.pdf: ooc.texinfo $(srcdir)/version.texi
-ooc.html: ooc.texinfo $(srcdir)/version.texi
+$(srcdir)/ooc.info: ooc.texi $(srcdir)/version.texi
+ooc.dvi: ooc.texi $(srcdir)/version.texi
+ooc.pdf: ooc.texi $(srcdir)/version.texi
+ooc.html: ooc.texi $(srcdir)/version.texi
 $(srcdir)/version.texi:  $(srcdir)/stamp-vti
-$(srcdir)/stamp-vti: ooc.texinfo $(top_srcdir)/configure
-	@(dir=.; test -f ./ooc.texinfo || dir=$(srcdir); \
-	set `$(SHELL) $(srcdir)/mdate-sh $$dir/ooc.texinfo`; \
+$(srcdir)/stamp-vti: ooc.texi $(top_srcdir)/configure
+	@(dir=.; test -f ./ooc.texi || dir=$(srcdir); \
+	set `$(SHELL) $(srcdir)/mdate-sh $$dir/ooc.texi`; \
 	echo "@set UPDATED $$1 $$2 $$3"; \
 	echo "@set UPDATED-MONTH $$2 $$3"; \
 	echo "@set EDITION $(VERSION)"; \
