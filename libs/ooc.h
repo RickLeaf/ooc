@@ -41,13 +41,16 @@
 
 #elif defined( __PIC32MX__ )
 	#include "port/mcc32.h"
-	
+
+#elif defined( __C6000__ )
+	#include "port/c6000.h"
+
 #elif defined( __GNUC__ )
 	#include "port/gnuc.h"
 	
 #elif defined( __18CXX  )
 	#include "port/mcc18.h"
-	
+
 #else
 	#include "port/anyc.h"
 #endif

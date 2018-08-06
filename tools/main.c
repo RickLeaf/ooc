@@ -25,6 +25,7 @@
 #include <string.h>
 #include <glib.h>
 
+#undef WIN32
 #ifndef WIN32
 
 #ifdef HAVE_CONFIG_H
