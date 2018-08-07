@@ -1,3 +1,6 @@
+The original websit is here: http://ooc-coding.sourceforge.net/
+I add new port for C6000 compiler and use it in TI C674X DSP project.
+
 Object Oriented C (ooc) kit is for those who want to program in an object orieneted
 manner, but want to stick on the good old C as well.
 ooc is lightweight but yet powerfull, uses only ANSI-C, thus highly portable.
@@ -76,6 +79,13 @@ Install for the MPLAB IDE:
 ======================================
 
 The MPLAB C18 and C30 compiler support is included in the Windows installer.
+Install the Windows installer as described above!
+
+
+Install for the TI CCS5.5 C6000:
+======================================
+
+The TI CCS5.5 C6000 compiler support is included in the Windows installer.
 Install the Windows installer as described above!
 
 Install on other platforms:
